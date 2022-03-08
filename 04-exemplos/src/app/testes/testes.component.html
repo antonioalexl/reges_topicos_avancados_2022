@@ -1,0 +1,35 @@
+ 
+ <p> {{appName}} </p>
+
+<h2>Property binding </h2>
+
+<input type="text" [value]="nomeFaculdade">
+
+<h2>Class Bindings </h2>
+
+<p [class]="minhaClasseCSS">Este paragrafo exibe a propriedade *minhaClasseCSS* </p> 
+<p [class.vermelho]="usarCSS">Não é aplicado CSS neste paragrafoy</p>
+<p [class.vermelho]="!usarCSS">É aplicado CSS neste paragrafoy</p> 
+
+
+<h2>Style Bindings </h2>
+
+<p [style.color]="minhaCor">Cor do texto usando o style binding</p>
+
+
+<h2>Event Bindings </h2>
+
+<button (click)="exibirDados()">Clique aqui</button>
+
+<button on-click="exibirDados()">Clique aqui</button>
+
+
+
+ 
+<h2>Two Way Data Binding</h2>
+
+<input [(ngModel)]="nomeUsuario">
+
+<p>Two way binding funciona! Olá {{ nomeUsuario }}!</p>
+ 
+ 
