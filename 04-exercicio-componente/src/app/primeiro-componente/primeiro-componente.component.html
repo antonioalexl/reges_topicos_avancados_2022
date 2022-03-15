@@ -1,0 +1,15 @@
+<p>primeiro-componente works!</p>
+
+<input type="text" [(ngModel)]="nomeAtribuido">
+
+<br>
+<br>
+<button [class.vermelho]="usarCSS" (click)="atribuirValor()">Clique Aqui!!!</button>
+
+
+<button (click)="alterarCor()">Alterar corr!!!</button>
+
+<p>Seu nome aqui {{nome}}</p>
+
+
+<app-segundo-componente></app-segundo-componente>
