@@ -1,6 +1,5 @@
 export class Endereco {
-    /*
-        private int id;
+/*private int id;
         private String logradouro;
         private String bairro;
         private String cep;
@@ -8,16 +7,15 @@ export class Endereco {
         private String complemento;
         private String numero;
         private String uf;
-    
-    */
+ */
+id!:number;
+logradouro!:string;
+bairro!:string;
+cep!:string;
+cidade!:string;
+complemento!:string;
+numero!:string;
+uf!:string;
 
-  
-    id!: number;
-    logradouro!: string;
-    bairro!: string;
-    cep!: string;
-    cidade!: string;
-    complemento!: string;
-    numero!: string;
-    uf!: string;
+
 }
