@@ -7,6 +7,6 @@ export class Pessoa {
     email!:string;
     documento!: string;
     dataNascimento!: Date;
-    endereco!: Endereco;
+    endereco: Endereco = new Endereco;
 
 }
