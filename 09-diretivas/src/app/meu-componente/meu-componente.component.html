@@ -1,0 +1,34 @@
+<p>Exemplo da diretiva ngIf</p>
+
+
+<div *ngIf="this.exibir" class="alert alert-primary" role="alert">
+    Tópicos Avançados em Programação
+</div>
+
+<div *ngIf="this.exibir" class="alert alert-success" role="alert">
+    Faculdade Reges
+</div>
+
+<button type="button" (click)="exibirValor()" class="btn btn-danger">Danger</button>
+
+<p>Exemplo da diretiva ngFor</p>
+
+<button type="button" (click)="mostrarTabela()" class="btn btn-primary">{{this.textoBotao}}</button>
+
+<table class="table" *ngIf="this.exibirTabela">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Universo</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let heroi of herois">
+            <th scope="row">{{heroi.id}}</th>
+            <td>{{heroi.nome}}</td>
+            <td>{{heroi.universo}}</td>
+        </tr>
+    </tbody>
+</table>
