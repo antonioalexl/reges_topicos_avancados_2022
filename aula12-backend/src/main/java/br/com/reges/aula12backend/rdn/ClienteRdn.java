@@ -196,20 +196,23 @@ public class ClienteRdn {
 
         try {
 
-            String str = "delete from cliente";
+            String str = "delete from cliente where id_cliente = ?";
 
             //RECUPERAR A CONEXÃO 
             Connection conn = new ConnectionFactory().getConnection();
+            //INSTANCIAR O COMANDO
+            PreparedStatement stmt = conn.prepareStatement(str.toString());
 
-            //INSTANCIA O COMANDO
-            Statement statement = conn.createStatement();
+            //CRIAÇÃO DE PARAMETROS
+            stmt.setInt(1, id);          
             
             //EXECUTA O DELETE
-            numeroLinhasAfetadas = statement.executeUpdate(str);
+            numeroLinhasAfetadas = stmt.executeUpdate();
 
             //FECHA A CONEXÃO E O STATEMENT
             conn.close();
-            statement.close();
+
+            stmt.close();
 
         } catch (SQLException e) {
             System.out.println(e);
