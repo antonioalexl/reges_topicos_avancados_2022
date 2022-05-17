@@ -37,15 +37,45 @@ public class ClienteController {
         return rdn.obterPorId(id);
     }
 
-    @PostMapping("/cliente")
-    public int Post(@RequestBody Cliente cliente) throws SQLException {
-        ClienteRdn rdn = new ClienteRdn();
-        int retorno = rdn.inserir(cliente);
+    @PostMapping("/clientes")
+    public int Post(@RequestBody Cliente pcli) throws SQLException{
 
-        return retorno;
+        ClienteRdn rdn = new ClienteRdn();
+        return rdn.inserir(pcli);
+
     }
 
-    @PutMapping("/cliente/{id}")
+    @PutMapping("clientes/{id}")
+    public int Put(@PathVariable(value="id") int id, @RequestBody Cliente pCliente)
+    {
+        ClienteRdn rdn = new ClienteRdn();
+        if(rdn.obterPorId(id).getId() > 0)
+        {
+            return rdn.alterar(pCliente);
+        }
+        else
+        {
+            throw new ResponseStatusException( HttpStatus.NOT_FOUND, "cliente não encontrado");
+        }       
+    }
+
+    @DeleteMapping("clientes/{id}")
+    public int Delete(@PathVariable(value="id") int id){
+
+        ClienteRdn rdn = new ClienteRdn();
+        if(rdn.obterPorId(id).getId() > 0)
+        {
+            return rdn.deletar(id);
+        }
+        else 
+        {
+            throw new ResponseStatusException( HttpStatus.NOT_FOUND, "cliente não encontrado");
+        }
+
+    }
+
+    
+    /*@PutMapping("/cliente/{id}")
     public int Put(@PathVariable(value = "id") int id, @RequestBody Cliente cliente) {
 
         ClienteRdn rdn = new ClienteRdn();
@@ -57,14 +87,41 @@ public class ClienteController {
 
         } else {
 
-            throw new ResponseStatusException(
-                    HttpStatus.NOT_FOUND, "cliente não encontrado");
+            throw new ResponseStatusException( HttpStatus.NOT_FOUND, "cliente não encontrado");
         }
         return retorno;
 
-    }
+    }*/
 
-    @DeleteMapping("/cliente/{id}")
+
+
+  /*  @PostMapping("/cliente")
+    public int Post(@RequestBody Cliente cliente) throws SQLException {
+        ClienteRdn rdn = new ClienteRdn();
+        int retorno = rdn.inserir(cliente);
+
+        return retorno;
+    }*/
+
+   /* @PutMapping("/cliente/{id}")
+    public int Put(@PathVariable(value = "id") int id, @RequestBody Cliente cliente) {
+
+        ClienteRdn rdn = new ClienteRdn();
+        int retorno = 0;
+
+        if (rdn.obterPorId(id).getId() > 0) {
+
+            retorno = rdn.alterar(cliente);
+
+        } else {
+
+            throw new ResponseStatusException( HttpStatus.NOT_FOUND, "cliente não encontrado");
+        }
+        return retorno;
+
+    }*/
+
+    /*@DeleteMapping("/cliente/{id}")
     public int Delete(@PathVariable(value = "id") int id) {
         ClienteRdn rdn = new ClienteRdn();
 
@@ -76,10 +133,9 @@ public class ClienteController {
 
         } else {
 
-            throw new ResponseStatusException(
-                    HttpStatus.NOT_FOUND, "cliente não encontrado");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "cliente não encontrado");
         }
         return retorno;
-    }
+    }*/
 
 }
