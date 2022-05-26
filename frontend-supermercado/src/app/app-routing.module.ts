@@ -9,7 +9,11 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {path:"", component: HomeComponent },
   {path:"clientes", component: LstClientesComponent },
+  {path:"cliente/:id", component: FrmClienteComponent },
   {path:"cliente", component: FrmClienteComponent },
+
+
+
 
 ];
 
