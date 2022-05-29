@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cliente } from '../models/cliente';
 import { ClientesService } from '../services/clientes.service';
+import { ClienteService } from '../services/cliente.service';
 
 @Component({
   selector: 'app-lst-clientes',
@@ -11,7 +12,9 @@ import { ClientesService } from '../services/clientes.service';
 export class LstClientesComponent implements OnInit {
 
 
-  constructor(private route: Router,private cliService: ClientesService ) { }
+  constructor(private route: Router, private clienteService: ClienteService) { }
+
+  //clientes!: Cliente[];
 
   clientes!: Cliente[];
 
@@ -19,13 +22,24 @@ export class LstClientesComponent implements OnInit {
     this.obterTodos();
   }
 
-
   cadastrarCliente(){
-
     this.route.navigate(['/cliente']);
+  }
+
+  obterTodos(){
+    this.clienteService.ObterTodos().subscribe(
+
+        banana =>{
+          this.clientes = banana;
+        },
+    );
+
 
   }
-  obterTodos(){
+
+
+
+ /* obterTodos(){
 
     this.cliService.ObterTodos()
     .subscribe(
@@ -37,11 +51,8 @@ export class LstClientesComponent implements OnInit {
         console.log(e.error);
       },
       () => {
-
-
       });
-
-  }
+  }*/
 
 
 

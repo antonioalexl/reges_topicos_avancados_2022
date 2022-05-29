@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
-import { environment } from 'src/environments/environment';
-import { Cliente } from '../models/cliente';
+import { environment } from '../../environments/environment.prod';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/internal/Observable';
+import { Cliente } from '../models/cliente';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ClientesService {
+export class ClienteService  {
   api: string = environment.api;
 
   constructor(private http: HttpClient) {}
@@ -24,11 +24,4 @@ export class ClientesService {
     return this.http.post<number>(this.api + 'clientes', cliente);
   }
 
-  public Editar(id: number, cliente: Cliente): Observable<Cliente> {
-    return this.http.put<Cliente>(this.api + 'clientes/' + id, cliente);
-  }
-
-  public Deletar(id: Number) {
-    return this.http.delete(this.api + 'clientes/' + id);
-  }
 }

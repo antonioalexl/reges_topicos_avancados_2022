@@ -1,30 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cliente } from '../models/cliente';
+import { ClienteService } from '../services/cliente.service';
 
 @Component({
   selector: 'tests-frm-cliente',
   templateUrl: './frm-cliente.component.html',
-  styleUrls: ['./frm-cliente.component.css']
+  styleUrls: ['./frm-cliente.component.css'],
 })
 export class FrmClienteComponent implements OnInit {
+  constructor(private route: Router, private clienteService: ClienteService) {}
 
-  constructor(private route:Router) { }
+  //CRIAR OBJETO DO TIPO CLIENTE
+  model: Cliente = new Cliente();
 
-    //CRIAR OBJETO DO TIPO CLIENTE
-    model: Cliente  = new Cliente();
-
-  voltarParaLista(){
-
+  voltarParaLista() {
     this.route.navigate(['/clientes']);
   }
 
-  submit(): void{
-
-
+  submit(): void {
+    this.clienteService.Adicionar(this.model).subscribe((data) => {
+      if (data > 0) {
+        alert("Cliente cadastrado com sucesso!!!!!")
+        console.log('cliente cadastrado com sucesso!!');
+      }
+    });
   }
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
