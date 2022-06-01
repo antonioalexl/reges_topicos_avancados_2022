@@ -23,8 +23,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     HttpClientModule
-
-
   ],
   providers: [],
   bootstrap: [AppComponent]

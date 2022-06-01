@@ -60,7 +60,15 @@ public class ClienteRdn {
         stmt.setString(1, cliente.getNome());
         stmt.setString(2, cliente.getTelefone());
 
-        stmt.setDate(3, new java.sql.Date(cliente.getDataNascimento().getTimeInMillis()));
+
+          //PEGA A DATA CORRENTE, ASSIM NÃO DÁ ERRO
+          Calendar today = Calendar.getInstance();
+          cliente.setDataNascimento(today);
+          stmt.setDate(3, new java.sql.Date(today.getTimeInMillis()));
+
+        //stmt.setDate(3, new java.sql.Date(cliente.getDataNascimento().getTimeInMillis()));
+
+
         stmt.setString(4, cliente.getEmail());
         stmt.setString(5, cliente.getNumeroCartaoFidelidade());
 
@@ -250,7 +258,13 @@ public class ClienteRdn {
             //CRIAÇÃO DE PARAMETROS
             stmt.setString(1, cliente.getNome());
             stmt.setString(2, cliente.getTelefone());
-            stmt.setDate(3, new java.sql.Date(cliente.getDataNascimento().getTimeInMillis()));
+//            stmt.setDate(3, new java.sql.Date(cliente.getDataNascimento().getTimeInMillis()));
+
+                //PEGA A DATA CORRENTE, ASSIM NÃO DÁ ERRO
+                Calendar today = Calendar.getInstance();
+                cliente.setDataNascimento(today);
+
+                stmt.setDate(3, new java.sql.Date(today.getTimeInMillis()));
 
             stmt.setString(4, cliente.getEmail());
             stmt.setString(5, cliente.getNumeroCartaoFidelidade());
@@ -327,8 +341,10 @@ public class ClienteRdn {
                 //CONVERTER SQL DATE TO CALENDAR
                 Calendar calendar = Calendar.getInstance();
                 calendar.setTime(rs.getDate("data_nascimento"));
-
                 cliente.setDataNascimento(calendar);
+
+              
+
                 cliente.setEmail(rs.getString("email"));
                 cliente.setNumeroCartaoFidelidade(rs.getString("numero_cartao_fidelidade"));
 

@@ -8,6 +8,7 @@ import { Cliente } from '../models/cliente';
   providedIn: 'root',
 })
 export class ClienteService  {
+
   api: string = environment.api;
 
   constructor(private http: HttpClient) {}
@@ -23,5 +24,15 @@ export class ClienteService  {
   public Adicionar(cliente: Cliente): Observable<number> {
     return this.http.post<number>(this.api + 'clientes', cliente);
   }
+
+  public Editar(id:number, cliente:Cliente):Observable<number>{
+      return this.http.put<number>(this.api + 'clientes/' + id, cliente);
+  }
+
+  public Deletar(id:number):Observable<number>{
+    return this.http.delete<number>(this.api + 'clientes/' + id);
+
+  }
+
 
 }

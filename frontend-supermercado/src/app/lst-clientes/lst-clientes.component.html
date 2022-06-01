@@ -1,48 +1,55 @@
 <h4>Clientes</h4>
 <br>
 
-<button class="btn btn-success"(click)="cadastrarCliente()" >Novo Cliente</button>
+<button class="btn btn-success" (click)="cadastrarCliente()">Novo Cliente</button>
 
 <br>
 <br>
 <table class="table table-striped">
   <thead>
-      <tr>
-          <th scope="col">Id</th>
-          <th scope="col">Nome</th>
-          <th scope="col">Telefone</th>
-          <th scope="col">E-mail</th>
-          <th scope="col">Documento</th>
-          <th scope="col">Nascimento</th>
-          <th scope="col">Lougradouro</th>
-          <th scope="col">Numero</th>
-          <th scope="col">Bairro</th>
-          <th scope="col">CEP</th>
-          <th scope="col">Cidade</th>
-          <th scope="col">Complemento</th>
-          <th scope="col">Uf</th>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Id</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Documento</th>
+      <th scope="col">Nascimento</th>
+      <th scope="col">Lougradouro</th>
+      <th scope="col">Numero</th>
+      <th scope="col">Bairro</th>
+      <th scope="col">CEP</th>
+      <th scope="col">Cidade</th>
+      <th scope="col">Complemento</th>
+      <th scope="col">Uf</th>
 
-      </tr>
+    </tr>
   </thead>
   <tbody>
-      <tr *ngFor="let cliente of clientes">
-          <td scope="row">{{cliente.id}}</td>
-          <td scope="row">{{cliente.nome}}</td>
-          <td scope="row">{{cliente.telefone}}</td>
-          <td scope="row">{{cliente.email}}</td>
-          <td scope="row">{{cliente.documento}}</td>
-          <td scope="row">{{cliente.dataNascimento | date: 'dd/MM/yyyy'}}</td>
-          <td scope="row">{{cliente.endereco.logradouro}}</td>
-          <td scope="row">{{cliente.endereco.numero}}</td>
-          <td scope="row">{{cliente.endereco.bairro}}</td>
-          <td scope="row">{{cliente.endereco.cep}}</td>
-          <td scope="row">{{cliente.endereco.cidade}}</td>
-          <td scope="row">{{cliente.endereco.complemento}}</td>
-          <td scope="row">{{cliente.endereco.uf}}</td>
-      </tr>
+    <tr *ngFor="let cliente of clientes">
+      <td>
+        <div class="btn-group btn-sm" role="group" (click)="removerCliente(cliente.id)" aria-label="Basic example">
+          <button type="button" class="btn btn-danger">Remover</button>
+          <a [routerLink]="['/cliente', cliente.id]" class="btn  btn-primary" role="button"
+            aria-disabled="true">Alterar</a>
+
+        </div>
+      </td>
+
+      <td scope="row">{{cliente.id}}</td>
+      <td scope="row">{{cliente.nome}}</td>
+      <td scope="row">{{cliente.telefone}}</td>
+      <td scope="row">{{cliente.email}}</td>
+      <td scope="row">{{cliente.documento}}</td>
+      <td scope="row">{{cliente.dataNascimento | date: 'dd/MM/yyyy'}}</td>
+      <td scope="row">{{cliente.endereco.logradouro}}</td>
+      <td scope="row">{{cliente.endereco.numero}}</td>
+      <td scope="row">{{cliente.endereco.bairro}}</td>
+      <td scope="row">{{cliente.endereco.cep}}</td>
+      <td scope="row">{{cliente.endereco.cidade}}</td>
+      <td scope="row">{{cliente.endereco.complemento}}</td>
+      <td scope="row">{{cliente.endereco.uf}}</td>
+    </tr>
 
   </tbody>
 </table>
-
-
-

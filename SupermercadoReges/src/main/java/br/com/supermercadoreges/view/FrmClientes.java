@@ -91,21 +91,6 @@ public class FrmClientes extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tableCliente);
-        if (tableCliente.getColumnModel().getColumnCount() > 0) {
-            tableCliente.getColumnModel().getColumn(0).setHeaderValue("ID");
-            tableCliente.getColumnModel().getColumn(1).setHeaderValue("NOME");
-            tableCliente.getColumnModel().getColumn(2).setHeaderValue("TELEFONE");
-            tableCliente.getColumnModel().getColumn(3).setHeaderValue("NASCIMENTO");
-            tableCliente.getColumnModel().getColumn(4).setHeaderValue("EMAIL");
-            tableCliente.getColumnModel().getColumn(5).setHeaderValue("CARTÃO FIDELIDADE");
-            tableCliente.getColumnModel().getColumn(6).setHeaderValue("LOGRADOURO");
-            tableCliente.getColumnModel().getColumn(7).setHeaderValue("BAIRRO");
-            tableCliente.getColumnModel().getColumn(8).setHeaderValue("CEP");
-            tableCliente.getColumnModel().getColumn(9).setHeaderValue("CIDADE");
-            tableCliente.getColumnModel().getColumn(10).setHeaderValue("COMPLEMENTO");
-            tableCliente.getColumnModel().getColumn(11).setHeaderValue("NÚMERO");
-            tableCliente.getColumnModel().getColumn(12).setHeaderValue("UF");
-        }
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

@@ -24,8 +24,8 @@ export class ClientesService {
     return this.http.post<number>(this.api + 'clientes', cliente);
   }
 
-  public Editar(id: number, cliente: Cliente): Observable<Cliente> {
-    return this.http.put<Cliente>(this.api + 'clientes/' + id, cliente);
+  public Editar(id: number, cliente: Cliente): Observable<number> {
+    return this.http.put<number>(this.api + 'clientes/' + id, cliente);
   }
 
   public Deletar(id: Number) {

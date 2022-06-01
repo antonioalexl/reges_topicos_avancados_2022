@@ -20,10 +20,11 @@ import org.springframework.web.server.ResponseStatusException;
 import br.com.reges.aula12backend.modelos.Cliente;
 import br.com.reges.aula12backend.rdn.ClienteRdn;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class ClienteController {
 
-    @CrossOrigin(origins = "http://localhost:4200")
+  
     @GetMapping("/clientes")
     public List<Cliente> Get() {
 
@@ -31,14 +32,14 @@ public class ClienteController {
         return rdn.obterTodos();
 
     }
-    @CrossOrigin(origins = "http://localhost:4200")
+  
     @GetMapping("/clientes/{id}")
     public Cliente GetById(@PathVariable("id") int id) {
 
         ClienteRdn rdn = new ClienteRdn();
         return rdn.obterPorId(id);
     }
-    @CrossOrigin(origins = "http://localhost:4200")
+    
     @PostMapping("/clientes")
     public int Post(@RequestBody Cliente pcli) throws SQLException {
 
@@ -46,7 +47,7 @@ public class ClienteController {
         return rdn.inserir(pcli);
 
     }
-    @CrossOrigin(origins = "http://localhost:4200")
+    
     @PutMapping("clientes/{id}")
     public int Put(@PathVariable(value = "id") int id, @RequestBody Cliente pCliente) {
         ClienteRdn rdn = new ClienteRdn();
@@ -56,7 +57,7 @@ public class ClienteController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "cliente não encontrado");
         }
     }
-    @CrossOrigin(origins = "http://localhost:4200")
+   
     @DeleteMapping("clientes/{id}")
     public int Delete(@PathVariable(value = "id") int id) {
 

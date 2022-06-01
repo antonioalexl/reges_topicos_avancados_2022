@@ -12,9 +12,6 @@ const routes: Routes = [
   {path:"cliente/:id", component: FrmClienteComponent },
   {path:"cliente", component: FrmClienteComponent },
 
-
-
-
 ];
 
 
